@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="propertyVM"
+            type="com.example.marsrealestatedemo.local.Mars" />
+        <import type="android.view.View"/>
+    </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/mars_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:padding="2dp"
+        app:imageUrl="@{propertyVM.imgSrcUrl}"
+        tools:src="@tools:sample/backgrounds/scenic"/>
+
+        <ImageView
+            android:id="@+id/mars_property_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:adjustViewBounds="true"
+            android:visibility="@{propertyVM.rental ? View.GONE : View.VISIBLE}"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/is_for_sale_outline"
+            tools:src="@drawable/is_for_sale_outline"/>
+    </FrameLayout>
+</layout>
